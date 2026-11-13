@@ -86,7 +86,7 @@ public login() {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-private void jTextUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextUsernameActionPerformed
+private void jTextUsernameActionPerformed(java.awt.event.ActionEvent evt) {                                              
 }
 private void jTextPasswordActionPerformed(java.awt.event.ActionEvent evt) {                                              
 }     
@@ -113,15 +113,32 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             "SELECT * FROM user WHERE username = ? AND password = ?"
         )
     ) {
+
         ps.setString(1, username);
         ps.setString(2, password);
 
         try (java.sql.ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
+
                 javax.swing.JOptionPane.showMessageDialog(
-                    this, "Login berhasil! Selamat datang, " + username
+                    this, "Login berhasil!"
                 );
+
+                try {
+                    utama halaman = new utama();
+                    halaman.setLocationRelativeTo(null);
+                    halaman.setVisible(true);
+
+                    this.dispose();
+
+                } catch (Exception e) {
+                    javax.swing.JOptionPane.showMessageDialog(
+                        this, "Gagal membuka halaman utama: " + e.getMessage()
+                    );
+                    e.printStackTrace();
+                }
+
             } else {
                 javax.swing.JOptionPane.showMessageDialog(
                     this, "Username atau password salah!"
@@ -129,12 +146,13 @@ private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             }
         }
 
-    } catch (java.sql.SQLException e) {
+    } catch (Exception e) {
         javax.swing.JOptionPane.showMessageDialog(
-            this, "Terjadi kesalahan: " + e.getMessage()
+            this, "Kesalahan: " + e.getMessage()
         );
+        e.printStackTrace();
     }
-} 
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
