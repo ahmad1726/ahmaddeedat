@@ -33,7 +33,7 @@ public class transaksi extends javax.swing.JFrame {
         @Column(name = "tanggal")
         private LocalDate tanggal;
 
-        @Column(name = "biaya")
+        @Column(name = "total_biaya")
         private BigDecimal biaya;
 
         public TransaksiData() {
