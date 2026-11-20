@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="564334e4-72d3-4b7a-9ed3-579db1019686">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[SELECT
+    p.id AS id,
+    p.nama AS nama,
+    t.jenis_layanan AS jenis_layanan,
+    t.total_biaya AS total_biaya,
+    pb.metode_pembayaran AS metode_pembayaran
+FROM transaksi t
+JOIN pelanggan p ON t.id_pelanggan = p.id
+LEFT JOIN pembayaran pb ON t.id_transaksi = pb.id_transaksi]]>
+	</queryString>
+	<field name="nama" class="java.lang.String"/>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="jenis_layanan" class="java.lang.String"/>
+	<field name="total_biaya" class="java.lang.Integer"/>
+	<field name="metode_pembayaran" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="152" y="24" width="250" height="30" uuid="794aafca-c1f6-41eb-a8d7-babc0cffe53c"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Laporan Transaksi MPKM"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="16" width="172" height="30" uuid="bb20d435-b5ad-4264-8cdb-ff09786b9799"/>
+				<textElement textAlignment="Center">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nama Pelanggan"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="20" width="100" height="30" uuid="5dd93d24-53a3-4b01-bd71-04d8123ead65"/>
+				<textElement textAlignment="Center">
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Transaksi"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="39" y="0" width="100" height="30" uuid="4f4aa64c-516c-453c-bf85-a1034874b3e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f26979c-692e-412d-8c1c-2a1182ebe3bb"/>
+				</reportElement>
+				<text><![CDATA[id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="0" width="100" height="30" uuid="8b262c32-0f71-4674-b0d0-6fe74959e767">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de04bd8e-e861-47ef-a3d1-47ef1fa10651"/>
+				</reportElement>
+				<text><![CDATA[nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="421" y="0" width="100" height="30" uuid="e04c6008-a885-4d61-b447-ec41e7f824ec">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62dda3bf-d596-4409-a903-bb611defee9c"/>
+				</reportElement>
+				<text><![CDATA[jenis_layanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="520" y="0" width="100" height="30" uuid="467bb22b-d563-4864-83c8-d0d313d64b3e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ae60ddb9-3868-494b-a315-9a3410416ad0"/>
+				</reportElement>
+				<text><![CDATA[total_biaya]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="0" width="100" height="30" uuid="908f25eb-0385-462d-a4d7-0a87d0a37a7a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9c85f1-0c57-4d6f-bb23-da0e6cb9395d"/>
+				</reportElement>
+				<text><![CDATA[metode_pembayaran]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="10" width="80" height="30" uuid="81df32b2-63f6-4a27-84b6-95141b68ef71">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f26979c-692e-412d-8c1c-2a1182ebe3bb"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="10" width="100" height="30" uuid="4daf773e-1c5c-41fd-8278-d68755e3e24a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de04bd8e-e861-47ef-a3d1-47ef1fa10651"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="280" y="0" width="100" height="30" uuid="94abd36b-560f-4409-8e01-0b09cec183ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62dda3bf-d596-4409-a903-bb611defee9c"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenis_layanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="480" y="0" width="80" height="30" uuid="0b1a2de3-de3f-49f9-989c-59bf7135084d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ae60ddb9-3868-494b-a315-9a3410416ad0"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_biaya}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="380" y="0" width="100" height="30" uuid="bb5b1c34-9ab9-4dce-9108-7a4213b1d896">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7f9c85f1-0c57-4d6f-bb23-da0e6cb9395d"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{metode_pembayaran}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
